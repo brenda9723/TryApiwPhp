@@ -1,0 +1,96 @@
+Problemas con usuario de github al hacer push
+----------------------------------------------
+
+# 1. Verificar si ya tienes claves SSH
+ls -la ~/.ssh  
+
+# 2. Si NO tienes claves, generar una nueva
+ssh-keygen -t ed25519 -C "tu-correo@example.com"
+
+# 3. Agregar la clave SSH al agente SSH
+eval "$(ssh-agent -s)"
+ssh-add ~/.ssh/id_ed25519  
+
+# 4. Copiar la clave SSH pública
+cat ~/.ssh/id_ed25519.pub  
+
+# 5. Agregar la clave SSH en GitHub  
+# (Ir a: https://github.com/settings/keys y pegarla)
+
+# 6. Verificar la conexión con GitHub
+ssh -T git@github.com  
+
+# 7. Cambiar el remoto de HTTPS a SSH
+git remote set-url origin git@github.com:tu-usuario/repositorio.git  
+
+# 8. Hacer push usando SSH
+git push origin main
+
+
+
+
+-----------------------------------------------
+
+🔹 Configuración Inicial  
+
+----------------------------------------------- 
+
+git config --global user.name "Tu Nombre"
+git config --global user.email "tuemail@example.com"
+ssh-keygen -t ed25519 -C "tuemail@example.com"
+eval "$(ssh-agent -s)"
+ssh-add ~/.ssh/id_ed25519
+cat ~/.ssh/id_ed25519.pub
+ssh -T git@github.com
+
+
+-----------------------------------------------
+🔹 Clonar un Repositorio
+
+
+git clone git@github.com:usuario/nombre-del-repo.git
+cd nombre-del-repo
+git remote -v
+
+----------------------------------------------
+🔹 Subir un Nuevo Proyecto
+
+cd ruta/del/proyecto
+git init
+git add .
+git commit -m "Primer commit"
+git remote add origin git@github.com:usuario/nombre-del-repo.git
+git push -u origin main
+
+----------------------------------------------
+
+🔹 Crear y Subir una Nueva Rama
+
+git checkout -b nueva-rama
+git add .
+git commit -m "Agregando cambios"
+git push origin nueva-rama
+git push --set-upstream origin nueva-rama
+
+----------------------------------------------
+🔹 Fusionar Ramas
+
+git checkout main
+git pull origin main
+git merge nombre-de-la-rama
+git push origin main
+
+----------------------------------------------
+🔹 Actualizar Código desde GitHub
+
+git fetch
+git pull origin main
+
+
+----------------------------------------------
+🔹 Eliminar Ramas
+
+git branch -d nombre-de-la-rama
+git push origin --delete nombre-de-la-rama
+
+

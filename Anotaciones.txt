@@ -1,0 +1,103 @@
+Php es un lenguaje interpretado del lado del servidor, que significa esto, tiene un uso general pero mas especificamente en el mundo del desarrollo web
+
+Por mas que php sea menospreciado, la mayoria de las paginas que funcionan con un servidor, tienen a php como motor.
+Hay dos frameworks muy famosos que son Laravel y Synphony
+
+Para instalarlo se puede descargar directamente de la web como cualquier aplicacion o se puede usar un manejador de paquetes como Home brew (si queres hacerlo desde la terminal) que te proporciona comandos para estirarlos desde la consola a todos los paquetes necesarios para tener el php en la maquina. Esto no es necesario en linux
+
+
+Instalacion
+---------------
+
+sudo apt install php php-cli php-mbstring php-xml php-curl php-zip php-gd php-intl php-mysql
+
+Una de las formas mas famosas de instalarlo es con WampServer y/o XampServer (mas moderno), en donde te viene el paquete completo con la base de datos y demas facilidades
+
+Para una mejor experiencia usando las extensiones de visual studio, desabilitar la extension @builtin php la de features e instalar intelephanse.
+
+
+Sintaxis
+----------------
+El lenguaje necesita el ; ya que cuando "compila" le saca los espacios y si no encuentra el ; entonces el no va entender y se le va mezclar todo
+
+
+Para hacer uso del lenguaje dentro de los ficheros como index.php es necesario utilizar etiquetas para que te pueda entender el interprete, algo asi como en html.
+
+
+Levantar un entorno de desarrollo en localhost
+----------------------------------------------
+
+php -S localhost:8000
+
+
+
+Mezclas
+------------
+
+Ya que php funciona con etiquetas, uno puede abrir y cerrar cosas en php y abajo ponerle estilos por ejemplo, con un <style>
+
+
+
+Tipos de datos y como los maneja
+----------------------------------
+
+php es un lenguaje de tipado dinamico debil y gradual
+
+dinamico: no hace falta que declares el tipo de la variable porque el lo va detectar y tambien puede cambiar eb tiempo de ejecucion
+debil: porque el solo va intentar cambiar los tipos si detecta algo que no encaja bien con el tipo de dato dado, por ejemplo si le das '39' + 1 el resultado va ser 40, por dos razones, la primera es porque el ve un numero y lo convierte y la segunda es porque si ambas fueran cadenas de texto y buscara concatenar, esto se hace con el . y no con el + como en otros lenguajes.
+gradual:  opcionalmente podes indicar el tipo de variables, pero esto no es siempre hay contextos en los que hay que usar, por ejemplo en clases o funcionoes.
+
+
+Metodos
+------------
+
+var_dump: te dice el tipo de dato 
+la gente usa mucho este recurso para debugear por eso a veces ves errores asi en la pagina, algo muy importante es que php no tiene una consola en si donde sacar los resultados de el var dump, como en js que podes ver el console.log en la consola, en php, te aparece en la misma pagina.
+para desactivarlo hay que quitar por ejemplo el display error
+
+
+se puede usar html en cualquier parte del codigo y el va entender 
+
+
+constantes
+-----------
+
+globales: definidas por el metodo define una vez para algo en especifico y afecta a todos los modulos
+
+contantes locales: las que se usan en alguna funcion y se definen diferente, se definen usando const NOMBRE = 'fuLNAO'; por ejemplo.
+Por convencion se utilizan los nombres de las constantes en mayusculas, ademas NO necesita el signo de dolar 
+Cuando vos queres volver a usaar la constante y cambiarle el valor, no te va dejar
+
+las constantes no funcionan en tiempo de ejecucion, o sea que no vas a poder por ejemplo usar en un bucle para que vaya cambiando de valor, es como estatico
+
+ternarias
+---------
+como en los otros lenguajes tambien se puede hacer una comparacion con una condicion y un resultado si es verdadero y otro si es falso
+
+match
+-------
+similar al switch case pero mejor ya que hace como una asignacion a la variable dependiendo de la condicion
+
+
+
+arrays
+---------------
+es como el vector en todos los otros lenguajes,
+los arreglos pueden crecer de forma dinamica y almacenar varios todos los tipos de datos
+
+
+Lo mas importante de los arreglos es poder iterarlos, como de normal, se hace con un for, en este caso como yo quiero que sea como un sistema de plantillas, voy a usar ul y li para listar los resultados
+
+
+diccionarios?
+--------------
+tambien se pueden crear otro tipo de arrays para acceder con una clave que es una cadena de texto, como un diccionario en otros lenguajes
+No es un objeto, es un map y propiamente se le llama arrays asociativos
+
+
+
+------------------
+hacer una prueba para llamadas a apis
+---------------------------------------
+
+php usa el comando curl para acceder mediante la url de la api, este comando es el que usamos en linux para acceder a alguna url desde la terminal tambien
